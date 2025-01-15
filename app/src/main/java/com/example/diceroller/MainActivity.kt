@@ -1,3 +1,14 @@
+/*
+ * Name: Pablo Guardia
+ * Date: January 14, 2025
+ * Assignment: Dice Roller Game
+ * Due Date: January 19th, 2025
+ * About this project: Basic dice roller app using Android Studio and Jetpack Compose.
+ * Git repository link: https://github.com/PaulDeLOL/android-birthday-card/tree/master
+ * All work below was performed by Pablo Guardia with direct reference to the "Add a
+ * button to an app" chapter in Unit 2 of Android Basics with Compose.
+ */
+
 package com.example.diceroller
 
 import android.os.Bundle
@@ -48,7 +59,12 @@ fun DiceRollerApp() {
 
 @Composable
 fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
+    // Starts with value of 1. Triggers recomposition of the
+    // composable function when the value changes.
     var result by remember { mutableStateOf(1) }
+
+    // Determines which drawable resource ID to use based on the value of 'result'.
+    // In this case, which face of the dice to use.
     val imageResource = when (result) {
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
@@ -58,10 +74,13 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
         else -> R.drawable.dice_6
     }
 
+    // Elements are arranged vertically with the column function and centered horizontally.
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Displays the image based on the value of imageResource,
+        // obtained from the 'when' block above.
         Image(
             painter = painterResource(imageResource),
             contentDescription = result.toString()
@@ -69,6 +88,8 @@ fun DiceWithButtonAndImage(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // When the button is clicked, a random number between 1 and 6 is generated,
+        // which is then assigned to 'result'. The assignment triggers recomposition.
         Button(onClick = { result = (1..6).random() }) {
             Text(stringResource(R.string.roll))
         }
