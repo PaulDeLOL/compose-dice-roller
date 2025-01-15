@@ -4,7 +4,7 @@
  * Assignment: Dice Roller Game
  * Due Date: January 19th, 2025
  * About this project: Basic dice roller app using Android Studio and Jetpack Compose.
- * Git repository link: https://github.com/PaulDeLOL/android-birthday-card/tree/master
+ * Git repository link: https://github.com/PaulDeLOL/compose-dice-roller
  * All work below was performed by Pablo Guardia with direct reference to the "Add a
  * button to an app" chapter in Unit 2 of Android Basics with Compose.
  */
